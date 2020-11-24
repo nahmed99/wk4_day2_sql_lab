@@ -53,3 +53,21 @@ def update(artist):
     sql = "UPDATE artists SET (name) = (%s) WHERE id = %s"
     values = [artist.name, artist.id]
     run_sql(sql, values) 
+
+
+def list_artist_albums(artist):
+    sql = "SELECT * FROM albums WHERE artist_id = %s"
+    values = [artist.id]
+    results = run_sql(sql, values)
+
+    artists_albums = []
+
+    for row_data in results:
+        album = Album(row_data["title"], 
+                    artist, 
+                    row_data["genre"],
+                    row_data["id"]
+        )
+        artists_albums.append(album)
+
+    return artists_albums

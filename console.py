@@ -1,3 +1,12 @@
+# BEFORE RUNNING THIS PROGRAM, MAKE SURE THAT YOU HAVE CREATED THE REQUIRED DATABASE (using: createdb database_name):
+# createdb music_library
+
+# CREATE THE TABLES (using: psql -d database_name -f filename.sql):
+# psql -d music_library -f db/music_library.sql
+#
+# Then run this file as a normal python program...
+#
+
 import pdb
 from models.album import Album
 from models.artist import Artist
