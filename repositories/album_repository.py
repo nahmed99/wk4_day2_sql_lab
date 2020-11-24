@@ -38,3 +38,8 @@ def select(id):
         album = Album(result['title'], artist, result['genre'], result['id'])
 
     return album
+
+
+def delete_all():
+    sql = "DELETE FROM albums"
+    run_sql(sql)
