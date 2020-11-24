@@ -24,3 +24,17 @@ def select_all():
         albums.append(album)
 
     return albums
+
+
+def select(id):
+    album = None
+    sql = "SELECT * FROM album WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        artist_id = result['artist_id']
+        artist = artist_repository.select(artist_id)
+        album = Album(result['title'], artist, result['genre'], result['id'])
+
+    return album
